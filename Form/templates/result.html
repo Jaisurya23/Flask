@@ -1,0 +1,51 @@
+# This file is part  displays results.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{title}}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            h1 {
+                color: #333;
+            }
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            .success {
+                color: green;
+                background-color: #d4edda;
+                padding: 10px;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{heading}}</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <p><strong>Name :</strong>{{name}}</p>
+        <p><strong>Father's Name :</strong>{{father_name}}</p>
+        <p><strong>Mother's Name :</strong>{{mother_name}}</p>
+        <p><strong>Email :</strong>{{email}}</p>
+        <p><strong>Age :</strong>{{age}}</p>
+        <p><strong>Education :</strong>{{education}}</p>
+        <p><strong>Mark :</strong>{{mark}}</p>
+        <p><strong>Address :</strong>{{address}}</p>
+        <p> 
+            Thanks you! for submitting the form.
+            We will get back to you soon.
+        </p>
+    </body>
+</html>
