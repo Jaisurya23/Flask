@@ -1,0 +1,77 @@
+<!--This file is result.html in a Flask application for displaying BMI results.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ heading }}</h1>
+        <p>Name: {{ name }}</p>
+        <p>Age: {{ age }}</p>
+        <p>Weight: {{ weight }} kg</p>
+        <p>Height: {{ height }} cm</p>
+        <p>BMI: {{ bmi }}</p>
+        <p class="{{ category | lower | replace(' ', '') }}">Status: {{ category }}</p>
+
+    </div>
+   <form action="{{ url_for('form.home') }}">
+  <button type="submit">Back to Form</button>
+</form>
+
+
+    </body>
+</html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .underweight {
+            color: blue;
+        }
+        .normalweight{
+            color: green;
+        }
+        .overweight {
+            color: orange;
+        }
+        .obesity {
+            color: red;
+        }
+        
+
+    </style>
